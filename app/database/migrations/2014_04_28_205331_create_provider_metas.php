@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCenterProducts extends Migration {
+class CreateProviderMetas extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,13 @@ class CreateCenterProducts extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('centerProducts', function($table){
+		Schema::table('providerMetas', function($table){
 
 			$table->create();
 			$table->increments('id');
-			$table->string('centerId');
-			$table->string('productId');
-			$table->bigInteger('items');
-			$table->bigInteger('appart');
-			$table->float('inPrice');
-			$table->float('outPrice');
+			$table->bigInteger('providerId');
+			$table->string('metaKey');
+			$table->longText('metaValue');
 			$table->softDeletes();
 			$table->timestamps();
 
@@ -35,7 +32,7 @@ class CreateCenterProducts extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('centerProducts');
+		//
 	}
 
 }

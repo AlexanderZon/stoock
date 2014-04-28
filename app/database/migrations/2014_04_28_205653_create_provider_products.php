@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCenterProducts extends Migration {
+class CreateProviderProducts extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateCenterProducts extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('centerProducts', function($table){
+		Schema::table('providerProducts', function($table){
 
 			$table->create();
 			$table->increments('id');
-			$table->string('centerId');
+			$table->string('providerId');
 			$table->string('productId');
 			$table->bigInteger('items');
 			$table->bigInteger('appart');
@@ -35,7 +35,7 @@ class CreateCenterProducts extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('centerProducts');
+		Schema::dropIfExists('providerProducts');
 	}
 
 }
